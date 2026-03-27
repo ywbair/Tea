@@ -12,13 +12,17 @@
         header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; text-align: center; }
         header h1 { font-size: 1.8em; margin-bottom: 8px; }
         .meta { opacity: 0.9; }
-        .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
-        .metric { background: white; padding: 18px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .metric-value { font-size: 1.8em; font-weight: 700; color: var(--primary); }
-        .metric-label { color: #666; font-size: 0.9em; }
+        .summary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 25px; }
+        .metric { background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .metric-value { font-size: 1.6em; font-weight: 700; color: var(--primary); }
+        .metric-label { color: #666; font-size: 0.85em; margin-top: 3px; }
         .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .section h2 { color: var(--primary); font-size: 1.2em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-        .highlight-box { padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em; }
+        th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 500; }
+        td { padding: 10px 8px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #f9f9f9; }
+        .highlight-box { padding: 15px 20px; border-radius: 8px; margin: 12px 0; }
         .opportunity { background: #e8f5e9; border-left: 4px solid var(--primary); }
         .risk { background: #fff3cd; border-left: 4px solid #ffc107; }
         .analysis { background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 20px; border-radius: 10px; margin: 15px 0; }
@@ -26,8 +30,13 @@
         .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 4px; }
         .tag-green { background: #d4edda; color: #155724; }
         .tag-blue { background: #cce5ff; color: #004085; }
+        .tag-purple { background: #e2d9f3; color: #5a3d7a; }
+        .tag-yellow { background: #fff3cd; color: #856404; }
+        .tag-red { background: #f8d7da; color: #721c24; }
         .price { color: #e65100; font-weight: 600; }
         .sales { color: #2e7d32; font-weight: 600; }
+        .notion-link { display: inline-block; background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; margin: 10px 5px; }
+        .notion-link:hover { background: var(--secondary); }
     </style>
 </head>
 <body>
@@ -37,53 +46,103 @@
             <div class="meta">2026-03-27 | 多平台交叉分析</div>
         </header>
         
+        <!-- 数据概览 -->
         <div class="summary">
             <div class="metric"><div class="metric-value">16</div><div class="metric-label">eBay样本</div></div>
-            <div class="metric"><div class="metric-value">14</div><div class="metric-label">亚马逊样本</div></div>
+            <div class="metric"><div class="metric-value">25</div><div class="metric-label">亚马逊样本(新)</div></div>
             <div class="metric"><div class="metric-value">6</div><div class="metric-label">Instagram标签</div></div>
-            <div class="metric"><div class="metric-value">30</div><div class="metric-label">总数据量</div></div>
+            <div class="metric"><div class="metric-value">47</div><div class="metric-label">总数据量</div></div>
+            <div class="metric"><div class="metric-value">3</div><div class="metric-label">分析平台</div></div>
         </div>
         
+        <!-- Notion链接 -->
         <div class="section">
-            <h2>📈 今日更新</h2>
-            <div class="highlight-box opportunity">
-                <p>✅ 今日从截图提取了新数据，已写入Notion数据库。</p>
-                <p>📋 查看详细数据：<a href="https://notion.so/330a3778002481fbba90eaa79c98bdb2">Notion日报</a></p>
+            <h2>📋 数据源链接</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:10px;">
+                <a href="https://notion.so/330a3778002481fba9e2c2eb1779be03" class="notion-link" target="_blank">📦 eBay竞品库</a>
+                <a href="https://notion.so/330a3778002481509f9fc3959be748e5" class="notion-link" target="_blank">📊 亚马逊竞品库</a>
+                <a href="https://notion.so/330a377800248145939aec4bea9a8789" class="notion-link" target="_blank">📸 Instagram数据</a>
             </div>
         </div>
         
+        <!-- 今日新增亚马逊数据 -->
         <div class="section">
-            <h2>📊 多平台价格-销量对比</h2>
-            <table style="width:100%; border-collapse:collapse;">
-                <tr>
-                    <th style="background:var(--primary);color:white;padding:10px;text-align:left;">平台</th>
-                    <th style="background:var(--primary);color:white;padding:10px;">价格区间</th>
-                    <th style="background:var(--primary);color:white;padding:10px;">月销估算</th>
-                    <th style="background:var(--primary);color:white;padding:10px;">毛利空间</th>
-                </tr>
-                <tr><td style="padding:10px;border-bottom:1px solid #eee;"><strong>eBay</strong></td><td style="padding:10px;border-bottom:1px solid #eee;" class="price">$10.9-18.9/250g</td><td style="padding:10px;border-bottom:1px solid #eee;" class="sales">5000+</td><td style="padding:10px;border-bottom:1px solid #eee;"><span class="tag tag-green">高55-65%</span></td></tr>
-                <tr><td style="padding:10px;border-bottom:1px solid #eee;"><strong>亚马逊</strong></td><td style="padding:10px;border-bottom:1px solid #eee;" class="price">$31-54/100g</td><td style="padding:10px;border-bottom:1px solid #eee;" class="sales">50-100</td><td style="padding:10px;border-bottom:1px solid #eee;"><span class="tag tag-green">中40-50%</span></td></tr>
+            <h2>📊 亚马逊热销榜 TOP25（今日新增）</h2>
+            <table>
+                <tr><th>#</th><th>产品</th><th>价格</th><th>评论</th><th>评分</th><th>品牌</th><th>类型</th></tr>
+                <tr><td>1</td><td>Hyleys 瘦身茶 巴西莓味 25袋装</td><td class="price">$18.49</td><td class="sales">25,123</td><td>⭐4.3</td><td>Hyleys</td><td><span class="tag tag-red">Slim Tea</span></td></tr>
+                <tr><td>2</td><td>Vahdam 有机日式抹茶 30克</td><td class="price">$14.28</td><td class="sales">2,836</td><td>⭐4.1</td><td>Vahdam</td><td><span class="tag tag-purple">Matcha</span></td></tr>
+                <tr><td>3</td><td>大自然口味绿茶 40袋装</td><td class="price">$18.66</td><td class="sales">2,128</td><td>⭐4.3</td><td>Nature's Guru</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>4</td><td>Matcha Moon 抹茶粉 113克</td><td class="price">$24.00</td><td class="sales">1,085</td><td>⭐4.5</td><td>Matcha Moon</td><td><span class="tag tag-purple">Matcha</span></td></tr>
+                <tr><td>5</td><td>Senbird 香浓烘培绿茶 日本 62克</td><td class="price">$18.00</td><td class="sales">1,180</td><td>⭐4.5</td><td>Senbird</td><td><span class="tag tag-green">Roasted Green</span></td></tr>
+                <tr><td>6</td><td>Starwest 有机绿茶 1磅</td><td class="price">$25.00</td><td class="sales">434</td><td>⭐4.5</td><td>Starwest</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>7</td><td>Choice Organic 绿茶 40袋</td><td class="price">$12.00</td><td class="sales">395</td><td>⭐4.5</td><td>Choice Organic</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>8</td><td>有机散装绿茶 113克</td><td class="price">$17.00</td><td class="sales">163</td><td>⭐4.4</td><td>-</td><td><span class="tag tag-green">Organic</span></td></tr>
+                <tr><td>9</td><td>Senbird 日本绿茶 100克</td><td class="price">$26.00</td><td class="sales">102</td><td>⭐4.6</td><td>Senbird</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>10</td><td>Senbird 顶级煎茶 100克</td><td class="price">$27.00</td><td class="sales">131</td><td>⭐4.6</td><td>Senbird</td><td><span class="tag tag-blue">Sencha</span></td></tr>
+            </table>
+            <p style="color:#888;font-size:0.9em;margin-top:10px;">共25个产品，查看更多请访问 <a href="https://notion.so/330a3778002481509f9fc3959be748e5" style="color:var(--primary);">Notion亚马逊竞品库</a></p>
+        </div>
+        
+        <!-- 多平台对比 -->
+        <div class="section">
+            <h2>🔄 多平台价格-销量对比</h2>
+            <table>
+                <tr><th>平台</th><th>价格区间</th><th>代表产品</th><th>月销估算</th><th>毛利空间</th></tr>
+                <tr><td><strong>🇪🇺 eBay</strong></td><td class="price">$10.9-18.9/250g</td><td>Gunpowder珠茶</td><td class="sales">5000+</td><td><span class="tag tag-green">高 55-65%</span></td></tr>
+                <tr><td><strong>🇺🇸 亚马逊</strong></td><td class="price">$10-72/100g</td><td>Hyleys Slim Tea</td><td class="sales">25123(爆款)</td><td><span class="tag tag-yellow">中 40-50%</span></td></tr>
+                <tr><td><strong>📸 Instagram</strong></td><td>-</td><td>#greentea #xinyangtea</td><td>互动1-200/帖</td><td><span class="tag tag-blue">种草渠道</span></td></tr>
             </table>
         </div>
         
+        <!-- 洞察 -->
         <div class="section">
-            <h2>🎯 核心机会</h2>
+            <h2>💡 核心洞察</h2>
             <div class="highlight-box opportunity">
+                <h3 style="margin-bottom:10px;">🎯 机会</h3>
                 <ul style="margin-left:20px;">
-                    <li><strong>eBay验证热销</strong>：Gunpowder珠茶热销5000+，龙井1000+ → 需求真实</li>
-                    <li><strong>亚马逊高价蓝海</strong>：$35+中国茶评论仅21-44 → 竞争少，可溢价</li>
-                    <li><strong>社交标签机会</strong>：#xinyangtea 仅8500帖 → 率先占位</li>
-                    <li><strong>利润空间</strong>：eBay款毛利55-65%，亚马逊款毛利40-50%</li>
+                    <li><strong>Slim Tea/Detox Tea热销</strong>：Hyleys 25,123评论，绝对爆款，但这是减肥茶品类</li>
+                    <li><strong>抹茶市场活跃</strong>：Vahdam、Matcha Moon等有稳定需求</li>
+                    <li><strong>高价散茶有机会</strong>：$25-65区间评论少，可做高端定位</li>
+                    <li><strong>茉莉绿茶</strong>：仅19评论，#jasminetea标签8.9万帖子，需求存在</li>
                 </ul>
             </div>
             <div class="highlight-box risk">
-                <strong>⚠️ 风险警示</strong>：中国茶在亚马逊评论21-44 vs 大牌1600+，差距大；eBay已有$10.9珠茶，价格战风险存在
+                <h3 style="margin-bottom:10px;">⚠️ 风险</h3>
+                <ul style="margin-left:20px;">
+                    <li><strong>减肥茶红海</strong>：Hyleys 25,123评论，新进入极难竞争</li>
+                    <li><strong>中国茶品牌弱</strong>：榜单中无中国茶品牌，茉莉绿茶仅19评论</li>
+                    <li><strong>日本茶主导</strong>：Senbird、Vahdam等日本品牌表现强劲</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 策略 -->
+        <div class="section">
+            <h2>🚀 策略建议</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+                <div class="analysis">
+                    <h3 style="color:var(--primary);margin-bottom:10px;">🇪🇺 eBay策略</h3>
+                    <ul style="margin-left:18px;font-size:0.95em;">
+                        <li>主推：珠茶250g/$12.99</li>
+                        <li>对标TOP1热销5000+</li>
+                        <li>毛利：55-65%</li>
+                    </ul>
+                </div>
+                <div class="analysis">
+                    <h3 style="color:var(--primary);margin-bottom:10px;">🇺🇸 亚马逊策略</h3>
+                    <ul style="margin-left:18px;font-size:0.95em;">
+                        <li>避开减肥茶红海</li>
+                        <li>主打：茉莉绿茶/高山茶</li>
+                        <li>定价：$29-48/100g</li>
+                    </ul>
+                </div>
             </div>
         </div>
         
         <footer>
             <p>🍵 CBEC茶叶竞品分析系统 | 2026-03-27</p>
-            <p>Generated by Martin Agent | Powered by MiniMax AI</p>
+            <p>Generated by Martin Agent | Powered by MiniMax AI + Notion + GitHub</p>
         </footer>
     </div>
 </body>
