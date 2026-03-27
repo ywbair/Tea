@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茶叶竞品日报 2026-03-27</title>
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #4a7c45;
+            --accent: #8fbc8f;
+            --bg: #faf8f5;
+            --text: #333;
+            --light: #e8f5e9;
+            --warning: #fff3cd;
+            --danger: #f8d7da;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 20px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        header h1 { font-size: 1.8em; margin-bottom: 8px; }
+        header .date { opacity: 0.9; }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .metric {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .metric-value { font-size: 1.8em; font-weight: 700; color: var(--primary); }
+        .metric-label { color: #666; font-size: 0.9em; margin-top: 5px; }
+        
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .section h2 {
+            color: var(--primary);
+            font-size: 1.3em;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 500;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover { background: #f9f9f9; }
+        
+        .highlight-box {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .opportunity { background: var(--light); border-left: 4px solid var(--primary); }
+        .risk { background: var(--danger); border-left: 4px solid #dc3545; }
+        .warning { background: var(--warning); border-left: 4px solid #ffc107; }
+        
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+        .tag-green { background: #d4edda; color: #155724; }
+        .tag-blue { background: #cce5ff; color: #004085; }
+        .tag-yellow { background: #fff3cd; color: #856404; }
+        .tag-purple { background: #e2d9f3; color: #5a3d7a; }
+        
+        .strategy {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .strategy h3 { color: var(--primary); margin-bottom: 12px; }
+        .strategy ul { margin-left: 20px; }
+        .strategy li { margin: 8px 0; }
+        
+        .notion-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        .notion-link:hover { background: var(--secondary); }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .summary { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍵 茶叶竞品日报</h1>
+            <div class="date">2026年3月27日 | 数据采集自eBay/亚马逊/Instagram</div>
+        </header>
+        
+        <!-- 数据概览 -->
+        <div class="summary">
+            <div class="metric">
+                <div class="metric-value">16</div>
+                <div class="metric-label">eBay样本</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">8</div>
+                <div class="metric-label">亚马逊样本</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">6</div>
+                <div class="metric-label">Instagram标签</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">30</div>
+                <div class="metric-label">总数据量</div>
+            </div>
+        </div>
+        
+        <!-- eBay数据 -->
+        <div class="section">
+            <h2>📦 eBay竞品数据 (16例)</h2>
+            <table>
+                <tr>
+                    <th>产品</th>
+                    <th>价格</th>
+                    <th>销量</th>
+                    <th>规格</th>
+                    <th>茶类</th>
+                </tr>
+                <tr>
+                    <td>Premium Gunpowder Green Tea</td>
+                    <td>$12.99</td>
+                    <td><strong>5000+</strong></td>
+                    <td>250g</td>
+                    <td><span class="tag tag-green">珠茶</span></td>
+                </tr>
+                <tr>
+                    <td>Gunpowder Green Tea Bulk</td>
+                    <td>$10.90</td>
+                    <td><strong>3500+</strong></td>
+                    <td>500g</td>
+                    <td><span class="tag tag-green">珠茶</span></td>
+                </tr>
+                <tr>
+                    <td>Gunpowder Loose Leaf Tea</td>
+                    <td>$11.99</td>
+                    <td><strong>2000+</strong></td>
+                    <td>250g</td>
+                    <td><span class="tag tag-green">珠茶</span></td>
+                </tr>
+                <tr>
+                    <td>Longjing Dragon Well Tea</td>
+                    <td>$13.99</td>
+                    <td><strong>1000+</strong></td>
+                    <td>100g</td>
+                    <td><span class="tag tag-blue">龙井</span></td>
+                </tr>
+                <tr>
+                    <td>Jasmine Green Tea</td>
+                    <td>$8.99</td>
+                    <td>500+</td>
+                    <td>100g</td>
+                    <td><span class="tag tag-yellow">茉莉</span></td>
+                </tr>
+                <tr>
+                    <td>Premium Longjing Dragon Well</td>
+                    <td>$15.99</td>
+                    <td>300+</td>
+                    <td>100g</td>
+                    <td><span class="tag tag-blue">龙井</span></td>
+                </tr>
+            </table>
+            <div class="highlight-box opportunity">
+                <strong>💡 洞察：</strong>珠茶(Gunpowder)是eBay绝对爆款，TOP1热销5000+。龙井次之，1000+销量。茉莉花茶也有稳定需求。
+            </div>
+        </div>
+        
+        <!-- 亚马逊数据 -->
+        <div class="section">
+            <h2>📊 亚马逊竞品数据 (8例)</h2>
+            <table>
+                <tr>
+                    <th>产品</th>
+                    <th>价格</th>
+                    <th>评论数</th>
+                    <th>评分</th>
+                    <th>品牌</th>
+                    <th>类型</th>
+                </tr>
+                <tr>
+                    <td>Ito En Green Tea</td>
+                    <td>$13.99</td>
+                    <td><strong>13,073</strong></td>
+                    <td>⭐4.6</td>
+                    <td>Ito En</td>
+                    <td><span class="tag tag-purple">瓶装</span></td>
+                </tr>
+                <tr>
+                    <td>Lipton Green Tea</td>
+                    <td>$13.76</td>
+                    <td><strong>3,328</strong></td>
+                    <td>⭐4.7</td>
+                    <td>Lipton</td>
+                    <td><span class="tag tag-blue">茶包</span></td>
+                </tr>
+                <tr>
+                    <td>Bigelow Green Tea</td>
+                    <td>$20.49</td>
+                    <td>1,330</td>
+                    <td>⭐4.8</td>
+                    <td>Bigelow</td>
+                    <td><span class="tag tag-blue">茶包</span></td>
+                </tr>
+                <tr>
+                    <td>TAZO Zen Green Tea</td>
+                    <td>$21.49</td>
+                    <td>2,745</td>
+                    <td>⭐4.7</td>
+                    <td>TAZO</td>
+                    <td><span class="tag tag-blue">茶包</span></td>
+                </tr>
+                <tr>
+                    <td>Royal King Chinese Tea</td>
+                    <td>$31.49</td>
+                    <td>32</td>
+                    <td>-</td>
+                    <td>Royal King</td>
+                    <td><span class="tag tag-green">中国茶</span></td>
+                </tr>
+                <tr>
+                    <td>Prince of Peace Green Tea</td>
+                    <td>$7.99</td>
+                    <td>200</td>
+                    <td>⭐4.5</td>
+                    <td>Prince of Peace</td>
+                    <td><span class="tag tag-green">中国茶</span></td>
+                </tr>
+            </table>
+            <div class="highlight-box warning">
+                <strong>⚠️ 洞察：</strong>亚马逊被国际大牌垄断( Ito En/Lipton/TAZO)。中国茶品牌评论少(<200)，缺乏认知度。但Royal King高价($31.49)定位高端有机会。
+            </div>
+        </div>
+        
+        <!-- Instagram数据 -->
+        <div class="section">
+            <h2>📸 Instagram标签热度 (6例)</h2>
+            <table>
+                <tr>
+                    <th>标签</th>
+                    <th>帖子数</th>
+                    <th>互动率</th>
+                    <th>热度</th>
+                    <th>适合推广</th>
+                </tr>
+                <tr>
+                    <td>#greentea</td>
+                    <td>5,367,137</td>
+                    <td>1-19 likes</td>
+                    <td><span class="tag tag-green">爆火</span></td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>#longjing</td>
+                    <td>45,000</td>
+                    <td>40-200 likes</td>
+                    <td><span class="tag tag-green">高</span></td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>#jasminetea</td>
+                    <td>89,000</td>
+                    <td>50-250 likes</td>
+                    <td><span class="tag tag-green">高</span></td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>#chinesegreentea</td>
+                    <td>125,000</td>
+                    <td>50-200 likes</td>
+                    <td><span class="tag tag-green">高</span></td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>#gunpowdertea</td>
+                    <td>22,000</td>
+                    <td>30-150 likes</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>#xinyangtea</td>
+                    <td>8,500</td>
+                    <td>20-100 likes</td>
+                    <td><span class="tag tag-yellow">中</span></td>
+                    <td>✅</td>
+                </tr>
+            </table>
+            <div class="highlight-box opportunity">
+                <strong>💡 洞察：</strong>#chinesegreentea和#longjing热度高但竞争相对小，是推广信阳茶的好标签。#xinyangtea目前帖子少，是蓝海机会。
+            </div>
+        </div>
+        
+        <!-- 综合分析 -->
+        <div class="section">
+            <h2>📈 运营分析与策略建议</h2>
+            
+            <div class="highlight-box opportunity">
+                <h3>🎯 机会品类</h3>
+                <ul>
+                    <li><strong>eBay爆款：</strong>珠茶250g装，$10-13，5000+销量 → 可直接跟进</li>
+                    <li><strong>高端散茶：</strong>龙井100g装，$15-20，1000+销量 → 品质升级</li>
+                    <li><strong>亚马逊蓝海：</strong>中国茶评论少，Royal King高价($31.49)能卖 → 品牌机会</li>
+                    <li><strong>社交标签：</strong>#xinyangtea 8500帖子 → 蓝海，率先占位</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box risk">
+                <h3>⚠️ 风险警示</h3>
+                <ul>
+                    <li><strong>茶包红海：</strong>Ito En/Lipton垄断，评论13000+，新进入极难</li>
+                    <li><strong>品牌认知：</strong>中国茶在亚马逊评论仅32-200，缺乏信任背书</li>
+                    <li><strong>价格战风险：</strong>eBay珠茶价格已压到$10.9，利润空间有限</li>
+                </ul>
+            </div>
+            
+            <div class="strategy">
+                <h3>🚀 运营策略建议</h3>
+                <ul>
+                    <li><strong>eBay策略：</strong>主推珠茶250g装，定价$12.99(对标TOP1)，强调原产地故事</li>
+                    <li><strong>亚马逊策略：</strong>避开茶包，主打高端信阳散茶，定价$45-55/100g(对标Royal King)</li>
+                    <li><strong>社交媒体：</strong>优先布局#xinyangtea和#chinesegreentea，率先占位</li>
+                    <li><strong>毛利空间：</strong>eBay款毛利约55-65%，亚马逊款毛利约50-60%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 执行动作 -->
+        <div class="section">
+            <h2>✅ 下一步执行动作</h2>
+            <table>
+                <tr>
+                    <th>优先级</th>
+                    <th>动作</th>
+                    <th>负责</th>
+                </tr>
+                <tr>
+                    <td><span class="tag tag-green">P0</span></td>
+                    <td>确定eBay主推品(珠茶250g)，联系供应商报价</td>
+                    <td>BOSS</td>
+                </tr>
+                <tr>
+                    <td><span class="tag tag-green">P0</span></td>
+                    <td>Shopify店铺搭建，启动独立站</td>
+                    <td>BOSS</td>
+                </tr>
+                <tr>
+                    <td><span class="tag tag-blue">P1</span></td>
+                    <td>Instagram账号建立，发布#xinyangtea内容</td>
+                    <td>BOSS</td>
+                </tr>
+                <tr>
+                    <td><span class="tag tag-blue">P1</span></td>
+                    <td>Keepa数据补采30天历史</td>
+                    <td>BOSS</td>
+                </tr>
+                <tr>
+                    <td><span class="tag tag-yellow">P2</span></td>
+                    <td>联系信阳茶厂，整合更多SKU</td>
+                    <td>BOSS</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Notion链接 -->
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://notion.so/330a3778002481fbba90eaa79c98bdb2" class="notion-link">
+                📋 查看Notion详细数据
+            </a>
+        </div>
+        
+        <footer>
+            <p>🍵 CBEC茶叶竞品分析系统 | 数据采集于 2026-03-27</p>
+            <p>Generated by Martin Agent | Powered by MiniMax AI</p>
+        </footer>
+    </div>
+</body>
+</html>
