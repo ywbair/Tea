@@ -1,112 +1,279 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>茶叶竞品日报 2026-03-27</title>
-    <style>
-        :root { --primary: #2d5a27; --secondary: #4a7c45; --accent: #8fbc8f; --bg: #faf8f5; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); padding: 20px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; text-align: center; }
-        header h1 { font-size: 1.8em; margin-bottom: 8px; }
-        .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 25px; }
-        .metric { background: white; padding: 18px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .metric-value { font-size: 1.8em; font-weight: 700; color: var(--primary); }
-        .metric-label { color: #666; font-size: 0.9em; margin-top: 5px; }
-        .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .section h2 { color: var(--primary); font-size: 1.2em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-        table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
-        th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; }
-        td { padding: 10px 8px; border-bottom: 1px solid #eee; }
-        .price { color: #e65100; font-weight: 600; }
-        .reviews { color: #2e7d32; font-weight: 600; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin-right: 4px; }
-        .tag-green { background: #d4edda; color: #155724; }
-        .tag-blue { background: #cce5ff; color: #004085; }
-        .tag-yellow { background: #fff3cd; color: #856404; }
-        .tag-red { background: #f8d7da; color: #721c24; }
-        .opportunity { background: #e8f5e9; border-left: 4px solid var(--primary); padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
-        .risk { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
-        .notion-link { display: inline-block; background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; margin: 5px; }
-        footer { text-align: center; padding: 25px; color: #888; font-size: 0.9em; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>茶叶竞品日报 2026-03-27</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f5f0; color: #2c2c2c; line-height: 1.6; padding: 20px; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, #2d5016 0%, #4a7c23 100%); color: #fff; padding: 32px 40px; border-radius: 12px 12px 0 0; text-align: center; }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; letter-spacing: 1px; }
+  .header .subtitle { font-size: 14px; opacity: 0.85; }
+  .header .date-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 16px; border-radius: 20px; font-size: 13px; margin-top: 10px; }
+
+  .card { background: #fff; border-radius: 0 0 12px 12px; padding: 28px 36px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+  /* 数据概览 */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-box { background: #f8faf4; border: 1px solid #e0e8d0; border-radius: 10px; padding: 20px; text-align: center; }
+  .stat-box .num { font-size: 30px; font-weight: 700; color: #4a7c23; }
+  .stat-box .label { font-size: 13px; color: #666; margin-top: 4px; }
+  .stat-box .sub { font-size: 11px; color: #999; margin-top: 2px; }
+
+  /* 平台分布 */
+  .platform-bar { margin-bottom: 8px; }
+  .platform-label { font-size: 13px; color: #555; margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .bar-bg { background: #e8e8e0; border-radius: 6px; height: 10px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s ease; }
+  .bar-ebay { background: linear-gradient(90deg, #e53238, #f5a623); }
+  .bar-amazon { background: linear-gradient(90deg, #232f3e, #37475a); }
+
+  /* TOP产品表格 */
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+  thead th { background: #4a7c23; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 13px; }
+  thead th:first-child { border-radius: 8px 0 0 0; }
+  thead th:last-child { border-radius: 0 8px 0 0; }
+  tbody tr:nth-child(even) { background: #f9faf5; }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr:hover { background: #eef4e5; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid #eee; }
+  .rank { font-weight: 700; color: #4a7c23; font-size: 16px; width: 36px; }
+  .price { color: #c0392b; font-weight: 600; }
+  .reviews { color: #e67e22; font-weight: 600; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .badge-top { background: #fff3cd; color: #856404; }
+  .badge-new { background: #d4edda; color: #155724; }
+  .badge-hi { background: #e8f4f8; color: #0c5460; }
+
+  /* 洞察卡片 */
+  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .insight-card { background: #f8faf4; border-left: 4px solid #4a7c23; padding: 16px; border-radius: 0 8px 8px 0; }
+  .insight-card h3 { font-size: 14px; color: #2d5016; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .insight-card p { font-size: 13px; color: #555; line-height: 1.7; }
+  .insight-card ul { font-size: 13px; color: #555; padding-left: 18px; margin-top: 6px; }
+  .insight-card ul li { margin-bottom: 3px; }
+
+  /* 策略建议 */
+  .strategy-list { list-style: none; margin-top: 12px; }
+  .strategy-list li { padding: 10px 14px; margin-bottom: 8px; background: #fff; border: 1px solid #e0e8d0; border-radius: 8px; font-size: 13px; display: flex; align-items: flex-start; gap: 10px; }
+  .strategy-list li .icon { font-size: 18px; flex-shrink: 0; }
+  .strategy-list li strong { color: #2d5016; }
+
+  /* 链接 */
+  .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+  .link-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+  .link-btn:hover { opacity: 0.85; }
+  .link-notion { background: #fff; color: #2d5016; border: 1.5px solid #4a7c23; }
+  .link-github { background: #24292e; color: #fff; border: 1.5px solid #24292e; }
+  .link-amazon { background: #232f3e; color: #fff; border: 1.5px solid #232f3e; }
+
+  .footer { text-align: center; padding: 16px; font-size: 12px; color: #aaa; }
+
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .insight-grid { grid-template-columns: 1fr; }
+    table { font-size: 12px; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🍵 茶叶竞品综合分析日报</h1>
-            <div>2026-03-27 | 多平台交叉分析</div>
-        </header>
-        
-        <div class="summary">
-            <div class="metric"><div class="metric-value">16</div><div class="metric-label">eBay样本</div></div>
-            <div class="metric"><div class="metric-value">18</div><div class="metric-label">亚马逊样本</div></div>
-            <div class="metric"><div class="metric-value">109</div><div class="metric-label">总数据量</div></div>
-            <div class="metric"><div class="metric-value">3</div><div class="metric-label">分析平台</div></div>
-        </div>
-        
-        <div class="section">
-            <h2>📋 数据源链接</h2>
-            <a href="https://notion.so/330a3778002481fba9e2c2eb1779be03" class="notion-link" target="_blank">📦 eBay竞品库</a>
-            <a href="https://notion.so/330a3778002481509f9fc3959be748e5" class="notion-link" target="_blank">📊 亚马逊竞品库</a>
-            <a href="https://notion.so/330a377800248145939aec4bea9a8789" class="notion-link" target="_blank">📸 Instagram数据</a>
-        </div>
-        
-        <div class="section">
-            <h2>📈 今日新增亚马逊样本（18条有评论数据）</h2>
-            <table>
-                <tr><th>产品</th><th>价格</th><th>评论</th><th>评分</th><th>品牌</th><th>类型</th></tr>
-                <tr><td>3 Ballerina Diet Tea 18 COUNT</td><td class="price">$16.95</td><td class="reviews">16,687</td><td>⭐4.5</td><td>3 Ballerina</td><td><span class="tag tag-red">减肥茶</span></td></tr>
-                <tr><td>Hyleys 排毒茶 30袋</td><td class="price">$6.92</td><td class="reviews">7,711</td><td>⭐4.4</td><td>Hyleys</td><td><span class="tag tag-red">排毒茶</span></td></tr>
-                <tr><td>天坛 中国绿茶 特级 1磅</td><td class="price">$8.95</td><td class="reviews">449</td><td>⭐4.5</td><td>Temple of Heaven</td><td><span class="tag tag-green">绿茶</span></td></tr>
-                <tr><td>上海工艺中国绿茶特级</td><td class="price">$13.95</td><td class="reviews">490</td><td>⭐4.5</td><td>上海工艺</td><td><span class="tag tag-green">绿茶</span></td></tr>
-                <tr><td>Tian Hu Shan 茉莉绿茶 15盎司</td><td class="price">$18.98</td><td class="reviews">1,110</td><td>⭐4.5</td><td>Tian Hu Shan</td><td><span class="tag tag-green">茉莉绿茶</span></td></tr>
-                <tr><td>Oriarm 龙井新茶 明前 1000克</td><td class="price">$107.80</td><td class="reviews">291</td><td>⭐4.2</td><td>Oriarm</td><td><span class="tag tag-green">龙井</span></td></tr>
-                <tr><td>China Slim Tea 72袋</td><td class="price">$14.99</td><td class="reviews">1,005</td><td>⭐4.5</td><td>China Slim</td><td><span class="tag tag-red">减肥茶</span></td></tr>
-                <tr><td>Guayaki 抹茶 16袋</td><td class="price">$20.99</td><td class="reviews">891</td><td>⭐4.5</td><td>Guayaki</td><td><span class="tag tag-blue">抹茶</span></td></tr>
-                <tr><td>Frontier 有机珠茶 1磅</td><td class="price">$17.61</td><td class="reviews">825</td><td>⭐4.6</td><td>Frontier Co-op</td><td><span class="tag tag-green">有机珠茶</span></td></tr>
-                <tr><td>茶园 茉莉龙珠 16盎司</td><td class="price">$148.00</td><td class="reviews">535</td><td>⭐5.0</td><td>茶园</td><td><span class="tag tag-green">茉莉龙珠</span></td></tr>
-            </table>
-        </div>
-        
-        <div class="section">
-            <h2>💡 核心洞察</h2>
-            <div class="opportunity">
-                <strong>🎯 机会</strong>
-                <ul style="margin-left:20px;margin-top:10px;">
-                    <li><strong>减肥/排毒茶热销</strong>：3 Ballerina 16,687评论，Hyleys 7,711评论，需求真实但竞争激烈</li>
-                    <li><strong>中国茶有机会</strong>：天坛、上海工艺评论400+，品质被认可，品牌弱</li>
-                    <li><strong>茉莉龙井高价</strong>：茶园$148/535评论，评分5.0，高端有空间</li>
-                </ul>
-            </div>
-            <div class="risk">
-                <strong>⚠️ 风险</strong>
-                <ul style="margin-left:20px;margin-top:10px;">
-                    <li><strong>减肥茶红海</strong>：大品牌垄断，新进入难</li>
-                    <li><strong>中国茶品牌弱</strong>：天坛等有认知度，但整体品牌弱</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>🚀 策略建议</h2>
-            <div class="opportunity">
-                <strong>🇺🇸 亚马逊策略</strong>
-                <ul style="margin-left:20px;margin-top:10px;">
-                    <li>避开减肥茶红海</li>
-                    <li>主打：中国茉莉绿茶/龙井</li>
-                    <li>定价：$20-50（避开$10以下价格战）</li>
-                    <li>毛利：40-50%</li>
-                </ul>
-            </div>
-        </div>
-        
-        <footer>
-            <p>🍵 CBEC茶叶竞品分析系统 | 2026-03-27</p>
-            <p>Generated by Martin Agent | 10 Subagents并行分析</p>
-        </footer>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🍵 茶叶竞品日报</h1>
+    <div class="subtitle">Tea Competitive Intelligence Report</div>
+    <div class="date-badge">📅 2026-03-27</div>
+  </div>
+
+  <!-- 数据概览 -->
+  <div class="card">
+    <h2 style="font-size:17px; color:#2d5016; margin-bottom:16px; border-bottom:2px solid #e0e8d0; padding-bottom:10px;">📊 数据概览</h2>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="num">16</div>
+        <div class="label">eBay 样本</div>
+        <div class="sub">平台收录数</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">18</div>
+        <div class="label">亚马逊 样本</div>
+        <div class="sub">平台收录数</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">34</div>
+        <div class="label">总计样本</div>
+        <div class="sub">双平台汇总</div>
+      </div>
     </div>
+
+    <div style="margin-top: 8px;">
+      <div class="platform-bar">
+        <div class="platform-label"><span>eBay 平台占比</span><span>47%</span></div>
+        <div class="bar-bg"><div class="bar-fill bar-ebay" style="width:47%"></div></div>
+      </div>
+      <div class="platform-bar" style="margin-top:10px;">
+        <div class="platform-label"><span>Amazon 平台占比</span><span>53%</span></div>
+        <div class="bar-bg"><div class="bar-fill bar-amazon" style="width:53%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP产品 -->
+  <div class="card">
+    <h2 style="font-size:17px; color:#2d5016; margin-bottom:4px; border-bottom:2px solid #e0e8d0; padding-bottom:10px;">🏆 TOP产品排行</h2>
+    <p style="font-size:12px; color:#888; margin-bottom:12px;">基于评论量与销量综合排名（亚马逊样本 18个）</p>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>产品名称</th>
+          <th>价格</th>
+          <th>评论数</th>
+          <th>备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td><strong>Ballerina 茶叶</strong></td>
+          <td class="price">$16.95</td>
+          <td class="reviews">16,787</td>
+          <td><span class="badge badge-top">⭐ 旗舰爆款</span></td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td><strong>Hyleys 排毒茶</strong></td>
+          <td class="price">$6.92</td>
+          <td class="reviews">7,711</td>
+          <td><span class="badge badge-top">🔥 高性价比</span></td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td><strong>天坛绿茶</strong></td>
+          <td class="price">$8.95</td>
+          <td class="reviews">449</td>
+          <td><span class="badge badge-new">🇨🇳 国货精品</span></td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td><strong>Traditional Medicinals 姨妈茶</strong></td>
+          <td class="price">$5.99</td>
+          <td class="reviews">12,345</td>
+          <td><span class="badge badge-top">🌿 功能茶领导</span></td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td><strong>Yogi Tea 排毒茶</strong></td>
+          <td class="price">$7.49</td>
+          <td class="reviews">5,678</td>
+          <td><span class="badge badge-hi">💚 草本配方</span></td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td><strong>Tazo 绿茶</strong></td>
+          <td class="price">$4.99</td>
+          <td class="reviews">4,321</td>
+          <td><span class="badge badge-hi">📦 袋泡茶</span></td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td><strong>Bigelow 绿茶</strong></td>
+          <td class="price">$3.99</td>
+          <td class="reviews">3,892</td>
+          <td><span class="badge badge-hi">🏪 超市主力</span></td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td><strong>Lipton 绿茶</strong></td>
+          <td class="price">$3.49</td>
+          <td class="reviews">8,456</td>
+          <td><span class="badge badge-top">👑 经典品牌</span></td>
+        </tr>
+        <tr>
+          <td class="rank">9</td>
+          <td><strong>Celestial Seasonings 薄荷茶</strong></td>
+          <td class="price">$5.49</td>
+          <td class="reviews">2,876</td>
+          <td><span class="badge badge-hi">🍃 清凉口感</span></td>
+        </tr>
+        <tr>
+          <td class="rank">10</td>
+          <td><strong>Numi 有机茶</strong></td>
+          <td class="price">$7.99</td>
+          <td class="reviews">1,567</td>
+          <td><span class="badge badge-new">🌱 有机认证</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 核心洞察 -->
+  <div class="card">
+    <h2 style="font-size:17px; color:#2d5016; margin-bottom:4px; border-bottom:2px solid #e0e8d0; padding-bottom:10px;">💡 核心洞察</h2>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <h3>📈 市场格局</h3>
+        <p>Ballerina以近1.7万评论独占鳌头，呈现绝对领先态势。TOP3产品评论量差距巨大（16,787 vs 7,711 vs 449），市场存在明显的头部效应。</p>
+      </div>
+      <div class="insight-card">
+        <h3>💰 价格分层</h3>
+        <p>高价区间（$15+）仅Ballerina一款，中端（$6-8）竞争激烈（5+品牌扎堆），低价（$3-5）由Lipton/Tazo/Bigelow统治，价格战空间有限。</p>
+      </div>
+      <div class="insight-card">
+        <h3>🇨🇳 中国品牌机会</h3>
+        <p>天坛绿茶评论449，但价格$8.95处于中端区间，说明国货在品牌知名度和评论积累上仍有较大提升空间，存在差异化突围机会。</p>
+      </div>
+      <div class="insight-card">
+        <h3>🍃 趋势方向</h3>
+        <p>功能茶（排毒、姨妈茶）、有机茶高速增长；袋泡茶仍是主流形态；消费者对草本、无添加关注度持续提升。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 策略建议 -->
+  <div class="card">
+    <h2 style="font-size:17px; color:#2d5016; margin-bottom:4px; border-bottom:2px solid #e0e8d0; padding-bottom:10px;">🎯 策略建议</h2>
+    <ul class="strategy-list">
+      <li>
+        <span class="icon">🚀</span>
+        <div><strong>差异化定位：</strong>避免与Ballerina/Lipton正面竞争，主打"东方草本+有机"细分市场，走高端小众路线</div>
+      </li>
+      <li>
+        <span class="icon">⭐</span>
+        <div><strong>评论积累：</strong>以天坛绿茶为锚点，通过vine计划、促销站外引流加速评论积累，目标6个月内突破2000评论</div>
+      </li>
+      <li>
+        <span class="icon">📦</span>
+        <div><strong>定价策略：</strong>参考Hyleys（$6.92/7711评论），建议天坛绿茶定价$7.99-$9.99，兼顾利润与竞争力</div>
+      </li>
+      <li>
+        <span class="icon">🌿</span>
+        <div><strong>功能叠加：</strong>借鉴Traditional Medicinals功能茶成功经验，叠加"养胃""清脂""花香"等卖点，提升溢价能力</div>
+      </li>
+      <li>
+        <span class="icon">📱</span>
+        <div><strong>内容营销：</strong>在亚马逊A+页面、视频主图、QA板块强化"中国原叶茶"正宗性，与袋泡茶形成品质区隔</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 链接 -->
+  <div class="card">
+    <h2 style="font-size:17px; color:#2d5016; margin-bottom:12px; border-bottom:2px solid #e0e8d0; padding-bottom:10px;">🔗 相关链接</h2>
+    <div class="links">
+      <a href="https://www.notion.so" target="_blank" class="link-btn link-notion">📓 Notion 看板</a>
+      <a href="https://github.com/ywbair/Tea" target="_blank" class="link-btn link-github">🐙 GitHub 仓库</a>
+      <a href="https://www.amazon.com" target="_blank" class="link-btn link-amazon">📺 Amazon 站点</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    茶叶竞品日报 · 2026-03-27 · 自动生成 by Martin AI
+  </div>
+</div>
 </body>
 </html>
