@@ -18,24 +18,23 @@
         .metric-label { color: #666; font-size: 0.85em; margin-top: 3px; }
         .section { background: white; border-radius: 12px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .section h2 { color: var(--primary); font-size: 1.2em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em; }
-        th { background: var(--primary); color: white; padding: 10px 8px; text-align: left; font-weight: 500; }
-        td { padding: 10px 8px; border-bottom: 1px solid #eee; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85em; }
+        th { background: var(--primary); color: white; padding: 8px 6px; text-align: left; font-weight: 500; }
+        td { padding: 8px 6px; border-bottom: 1px solid #eee; }
         tr:hover { background: #f9f9f9; }
         .highlight-box { padding: 15px 20px; border-radius: 8px; margin: 12px 0; }
         .opportunity { background: #e8f5e9; border-left: 4px solid var(--primary); }
         .risk { background: #fff3cd; border-left: 4px solid #ffc107; }
-        .analysis { background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 20px; border-radius: 10px; margin: 15px 0; }
         footer { text-align: center; padding: 25px; color: #888; font-size: 0.9em; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 4px; }
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 10px; font-size: 0.75em; margin-right: 3px; }
         .tag-green { background: #d4edda; color: #155724; }
         .tag-blue { background: #cce5ff; color: #004085; }
         .tag-purple { background: #e2d9f3; color: #5a3d7a; }
-        .tag-yellow { background: #fff3cd; color: #856404; }
         .tag-red { background: #f8d7da; color: #721c24; }
+        .tag-yellow { background: #fff3cd; color: #856404; }
         .price { color: #e65100; font-weight: 600; }
         .sales { color: #2e7d32; font-weight: 600; }
-        .notion-link { display: inline-block; background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; margin: 10px 5px; }
+        .notion-link { display: inline-block; background: var(--primary); color: white; padding: 8px 16px; border-radius: 8px; text-decoration: none; margin: 5px; font-size: 0.9em; }
         .notion-link:hover { background: var(--secondary); }
     </style>
 </head>
@@ -49,50 +48,47 @@
         <!-- 数据概览 -->
         <div class="summary">
             <div class="metric"><div class="metric-value">16</div><div class="metric-label">eBay样本</div></div>
-            <div class="metric"><div class="metric-value">25</div><div class="metric-label">亚马逊样本(新)</div></div>
+            <div class="metric"><div class="metric-value">77</div><div class="metric-label">亚马逊样本(新)</div></div>
             <div class="metric"><div class="metric-value">6</div><div class="metric-label">Instagram标签</div></div>
-            <div class="metric"><div class="metric-value">47</div><div class="metric-label">总数据量</div></div>
+            <div class="metric"><div class="metric-value">99</div><div class="metric-label">总数据量</div></div>
             <div class="metric"><div class="metric-value">3</div><div class="metric-label">分析平台</div></div>
         </div>
         
         <!-- Notion链接 -->
         <div class="section">
             <h2>📋 数据源链接</h2>
-            <div style="display:flex; flex-wrap:wrap; gap:10px;">
-                <a href="https://notion.so/330a3778002481fba9e2c2eb1779be03" class="notion-link" target="_blank">📦 eBay竞品库</a>
-                <a href="https://notion.so/330a3778002481509f9fc3959be748e5" class="notion-link" target="_blank">📊 亚马逊竞品库</a>
-                <a href="https://notion.so/330a377800248145939aec4bea9a8789" class="notion-link" target="_blank">📸 Instagram数据</a>
-            </div>
+            <a href="https://notion.so/330a3778002481fba9e2c2eb1779be03" class="notion-link" target="_blank">📦 eBay竞品库</a>
+            <a href="https://notion.so/330a3778002481509f9fc3959be748e5" class="notion-link" target="_blank">📊 亚马逊竞品库</a>
+            <a href="https://notion.so/330a377800248145939aec4bea9a8789" class="notion-link" target="_blank">📸 Instagram数据</a>
         </div>
         
-        <!-- 今日新增亚马逊数据 -->
+        <!-- 亚马逊TOP20 -->
         <div class="section">
-            <h2>📊 亚马逊热销榜 TOP25（今日新增）</h2>
+            <h2>📊 亚马逊热销TOP20（今日新增77条）</h2>
             <table>
                 <tr><th>#</th><th>产品</th><th>价格</th><th>评论</th><th>评分</th><th>品牌</th><th>类型</th></tr>
-                <tr><td>1</td><td>Hyleys 瘦身茶 巴西莓味 25袋装</td><td class="price">$18.49</td><td class="sales">25,123</td><td>⭐4.3</td><td>Hyleys</td><td><span class="tag tag-red">Slim Tea</span></td></tr>
-                <tr><td>2</td><td>Vahdam 有机日式抹茶 30克</td><td class="price">$14.28</td><td class="sales">2,836</td><td>⭐4.1</td><td>Vahdam</td><td><span class="tag tag-purple">Matcha</span></td></tr>
-                <tr><td>3</td><td>大自然口味绿茶 40袋装</td><td class="price">$18.66</td><td class="sales">2,128</td><td>⭐4.3</td><td>Nature's Guru</td><td><span class="tag tag-green">Green Tea</span></td></tr>
-                <tr><td>4</td><td>Matcha Moon 抹茶粉 113克</td><td class="price">$24.00</td><td class="sales">1,085</td><td>⭐4.5</td><td>Matcha Moon</td><td><span class="tag tag-purple">Matcha</span></td></tr>
-                <tr><td>5</td><td>Senbird 香浓烘培绿茶 日本 62克</td><td class="price">$18.00</td><td class="sales">1,180</td><td>⭐4.5</td><td>Senbird</td><td><span class="tag tag-green">Roasted Green</span></td></tr>
-                <tr><td>6</td><td>Starwest 有机绿茶 1磅</td><td class="price">$25.00</td><td class="sales">434</td><td>⭐4.5</td><td>Starwest</td><td><span class="tag tag-green">Green Tea</span></td></tr>
-                <tr><td>7</td><td>Choice Organic 绿茶 40袋</td><td class="price">$12.00</td><td class="sales">395</td><td>⭐4.5</td><td>Choice Organic</td><td><span class="tag tag-green">Green Tea</span></td></tr>
-                <tr><td>8</td><td>有机散装绿茶 113克</td><td class="price">$17.00</td><td class="sales">163</td><td>⭐4.4</td><td>-</td><td><span class="tag tag-green">Organic</span></td></tr>
-                <tr><td>9</td><td>Senbird 日本绿茶 100克</td><td class="price">$26.00</td><td class="sales">102</td><td>⭐4.6</td><td>Senbird</td><td><span class="tag tag-green">Green Tea</span></td></tr>
-                <tr><td>10</td><td>Senbird 顶级煎茶 100克</td><td class="price">$27.00</td><td class="sales">131</td><td>⭐4.6</td><td>Senbird</td><td><span class="tag tag-blue">Sencha</span></td></tr>
+                <tr><td>1</td><td>Tiesta Tea 绿茶入门套装 5盎司+过滤器</td><td class="price">$14.41</td><td class="sales">14,031</td><td>⭐4.6</td><td>Tiesta Tea</td><td><span class="tag tag-green">Tea Set</span></td></tr>
+                <tr><td>2</td><td>VAHDAM 有机喜马拉雅绿茶 100包</td><td class="price">$19.99</td><td class="sales">12,504</td><td>⭐4.3</td><td>VAHDAM</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>3</td><td>Tiesta Tea 菠萝蓝调 蓝莓绿茶</td><td class="price">$14.41</td><td class="sales">11,213</td><td>⭐4.8</td><td>Tiesta Tea</td><td><span class="tag tag-green">Fruit Green</span></td></tr>
+                <tr><td>4</td><td>有机珠茶散装 8盎司</td><td class="price">$10.99</td><td class="sales">11,281</td><td>⭐4.5</td><td></td><td><span class="tag tag-blue">Gunpowder</span></td></tr>
+                <tr><td>5</td><td>天虎特级散装绿茶 16盎司</td><td class="price">$18.23</td><td class="sales">3,514</td><td>⭐4.5</td><td>天虎</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>6</td><td>Davidson's Organics Gunpowder 16盎司</td><td class="price">$18.00</td><td class="sales">5,611</td><td>⭐4.5</td><td>Davidson's</td><td><span class="tag tag-blue">Gunpowder</span></td></tr>
+                <tr><td>7</td><td>有机珠茶散装 1磅</td><td class="price">$17.99</td><td class="sales">3,022</td><td>⭐4.5</td><td></td><td><span class="tag tag-blue">Gunpowder</span></td></tr>
+                <tr><td>8</td><td>VOO茉莉花绿茶散装 16盎司</td><td class="price">$29.99</td><td class="sales">1,262</td><td>⭐4.3</td><td>VOO</td><td><span class="tag tag-purple">Jasmine</span></td></tr>
+                <tr><td>9</td><td>Senbird 特级抹茶粉茶 日本京都 100克</td><td class="price">$29.99</td><td class="sales">2,168</td><td>⭐4.4</td><td>Senbird</td><td><span class="tag tag-purple">Matcha</span></td></tr>
+                <tr><td>10</td><td>Tiesta Tea 7种绿茶品鉴套装 7袋</td><td class="price">$22.04</td><td class="sales">1,768</td><td>⭐4.6</td><td>Tiesta Tea</td><td><span class="tag tag-green">Tea Set</span></td></tr>
+                <tr><td>11</td><td>LeafLea 40袋绿茶</td><td class="price">$14.99</td><td class="sales">3,116</td><td>⭐5.0</td><td>LeafLea</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>12</td><td>Starwest Botanicals 有机辣木茶叶 1磅</td><td class="price">$23.14</td><td class="sales">1,510</td><td>⭐4.6</td><td>Starwest</td><td><span class="tag tag-yellow">Herbal</span></td></tr>
+                <tr><td>13</td><td>Uncle Lee's Dieters Detox Tea</td><td class="price">$19.99</td><td class="sales">1,963</td><td>⭐4.5</td><td>Uncle Lee's</td><td><span class="tag tag-red">Detox</span></td></tr>
+                <tr><td>14</td><td>Waka 速溶绿茶粉 4盎司 80杯</td><td class="price">$11.97</td><td class="sales">2,845</td><td>⭐4.2</td><td>Waka</td><td><span class="tag tag-green">Instant Tea</span></td></tr>
+                <tr><td>15</td><td>天虎山特级散装绿茶 16盎司</td><td class="price">$18.85</td><td class="sales">1,114</td><td>⭐4.5</td><td>天虎山</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>16</td><td>圣培露冰茶 有机绿茶 12瓶装</td><td class="price">$28.76</td><td class="sales">1,110</td><td>⭐4.5</td><td></td><td><span class="tag tag-blue">Bottled</span></td></tr>
+                <tr><td>17</td><td>VAHDAM 喜马拉雅绿茶 3.53盎司</td><td class="price">$14.99</td><td class="sales">3,216</td><td>⭐4.4</td><td>VAHDAM</td><td><span class="tag tag-green">Green Tea</span></td></tr>
+                <tr><td>18</td><td>Senbird 特级焙茶 日本静冈 50克</td><td class="price">$26.39</td><td class="sales">430</td><td>⭐4.8</td><td>Senbird</td><td><span class="tag tag-purple">Hojicha</span></td></tr>
+                <tr><td>19</td><td>蒂斯塔茶 绿茶礼盒 5袋</td><td class="price">$19.51</td><td class="sales">437</td><td>⭐4.7</td><td>Tiesta Tea</td><td><span class="tag tag-green">Gift Set</span></td></tr>
+                <tr><td>20</td><td>Tea经典散装茶叶礼盒 5袋</td><td class="price">$29.71</td><td class="sales">716</td><td>⭐4.4</td><td></td><td><span class="tag tag-green">Gift Set</span></td></tr>
             </table>
-            <p style="color:#888;font-size:0.9em;margin-top:10px;">共25个产品，查看更多请访问 <a href="https://notion.so/330a3778002481509f9fc3959be748e5" style="color:var(--primary);">Notion亚马逊竞品库</a></p>
-        </div>
-        
-        <!-- 多平台对比 -->
-        <div class="section">
-            <h2>🔄 多平台价格-销量对比</h2>
-            <table>
-                <tr><th>平台</th><th>价格区间</th><th>代表产品</th><th>月销估算</th><th>毛利空间</th></tr>
-                <tr><td><strong>🇪🇺 eBay</strong></td><td class="price">$10.9-18.9/250g</td><td>Gunpowder珠茶</td><td class="sales">5000+</td><td><span class="tag tag-green">高 55-65%</span></td></tr>
-                <tr><td><strong>🇺🇸 亚马逊</strong></td><td class="price">$10-72/100g</td><td>Hyleys Slim Tea</td><td class="sales">25123(爆款)</td><td><span class="tag tag-yellow">中 40-50%</span></td></tr>
-                <tr><td><strong>📸 Instagram</strong></td><td>-</td><td>#greentea #xinyangtea</td><td>互动1-200/帖</td><td><span class="tag tag-blue">种草渠道</span></td></tr>
-            </table>
+            <p style="color:#888;font-size:0.85em;margin-top:10px;">共77个产品，查看全部请访问 <a href="https://notion.so/330a3778002481509f9fc3959be748e5" style="color:var(--primary);">Notion亚马逊竞品库</a></p>
         </div>
         
         <!-- 洞察 -->
@@ -100,19 +96,19 @@
             <h2>💡 核心洞察</h2>
             <div class="highlight-box opportunity">
                 <h3 style="margin-bottom:10px;">🎯 机会</h3>
-                <ul style="margin-left:20px;">
-                    <li><strong>Slim Tea/Detox Tea热销</strong>：Hyleys 25,123评论，绝对爆款，但这是减肥茶品类</li>
-                    <li><strong>抹茶市场活跃</strong>：Vahdam、Matcha Moon等有稳定需求</li>
-                    <li><strong>高价散茶有机会</strong>：$25-65区间评论少，可做高端定位</li>
-                    <li><strong>茉莉绿茶</strong>：仅19评论，#jasminetea标签8.9万帖子，需求存在</li>
+                <ul style="margin-left:20px;font-size:0.95em;">
+                    <li><strong>Tea Set(体验套装)热销</strong>：Tiesta Tea多款套装评论1.4万+，需求真实且持续</li>
+                    <li><strong>Gunpowder珠茶稳定</strong>：多款评论3000-11000+，但竞争激烈</li>
+                    <li><strong>日本茶主导中高端</strong>：Senbird、VAHDAM等评论高、评分高、品牌强</li>
+                    <li><strong>茉莉绿茶有机会</strong>：VOO $29.99/16盎司评论1262，需求存在</li>
                 </ul>
             </div>
             <div class="highlight-box risk">
                 <h3 style="margin-bottom:10px;">⚠️ 风险</h3>
-                <ul style="margin-left:20px;">
-                    <li><strong>减肥茶红海</strong>：Hyleys 25,123评论，新进入极难竞争</li>
-                    <li><strong>中国茶品牌弱</strong>：榜单中无中国茶品牌，茉莉绿茶仅19评论</li>
-                    <li><strong>日本茶主导</strong>：Senbird、Vahdam等日本品牌表现强劲</li>
+                <ul style="margin-left:20px;font-size:0.95em;">
+                    <li><strong>中国茶品牌弱</strong>：天虎、天虎山评论1000+，但品牌认知度低</li>
+                    <li><strong>日本茶垄断</strong>：Senbird、VAHDAM评分4.5+，新进入难度大</li>
+                    <li><strong>Detox/Slim Tea红海</strong>：评论7000+，价格战激烈</li>
                 </ul>
             </div>
         </div>
@@ -120,21 +116,22 @@
         <!-- 策略 -->
         <div class="section">
             <h2>🚀 策略建议</h2>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
-                <div class="analysis">
-                    <h3 style="color:var(--primary);margin-bottom:10px;">🇪🇺 eBay策略</h3>
-                    <ul style="margin-left:18px;font-size:0.95em;">
-                        <li>主推：珠茶250g/$12.99</li>
-                        <li>对标TOP1热销5000+</li>
-                        <li>毛利：55-65%</li>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;font-size:0.95em;">
+                <div class="highlight-box opportunity">
+                    <h3>🇺🇸 亚马逊策略</h3>
+                    <ul style="margin-left:18px;">
+                        <li>避开Detox/Slim Tea红海</li>
+                        <li>主打：中国茉莉绿茶 $25-35</li>
+                        <li>对标：VOO茉莉绿茶($29.99)</li>
+                        <li>毛利：40-50%</li>
                     </ul>
                 </div>
-                <div class="analysis">
-                    <h3 style="color:var(--primary);margin-bottom:10px;">🇺🇸 亚马逊策略</h3>
-                    <ul style="margin-left:18px;font-size:0.95em;">
-                        <li>避开减肥茶红海</li>
-                        <li>主打：茉莉绿茶/高山茶</li>
-                        <li>定价：$29-48/100g</li>
+                <div class="highlight-box opportunity">
+                    <h3>🇪🇺 eBay策略</h3>
+                    <ul style="margin-left:18px;">
+                        <li>主推：Gunpowder珠茶250g</li>
+                        <li>对标：TOP1热销11000+评论</li>
+                        <li>毛利：55-65%</li>
                     </ul>
                 </div>
             </div>
