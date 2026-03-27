@@ -26,9 +26,9 @@
         .tag-green { background: #d4edda; color: #155724; }
         .tag-blue { background: #cce5ff; color: #004085; }
         .tag-yellow { background: #fff3cd; color: #856404; }
-        .highlight-box { padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
-        .opportunity { background: #e8f5e9; border-left: 4px solid var(--primary); }
-        .risk { background: #fff3cd; border-left: 4px solid #ffc107; }
+        .tag-red { background: #f8d7da; color: #721c24; }
+        .opportunity { background: #e8f5e9; border-left: 4px solid var(--primary); padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
+        .risk { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px 20px; border-radius: 8px; margin: 15px 0; }
         .notion-link { display: inline-block; background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; margin: 5px; }
         footer { text-align: center; padding: 25px; color: #888; font-size: 0.9em; }
     </style>
@@ -36,13 +36,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>🍵 茶叶竞品日报</h1>
+            <h1>🍵 茶叶竞品综合分析日报</h1>
             <div>2026-03-27 | 多平台交叉分析</div>
         </header>
         
         <div class="summary">
             <div class="metric"><div class="metric-value">16</div><div class="metric-label">eBay样本</div></div>
-            <div class="metric"><div class="metric-value">93</div><div class="metric-label">亚马逊样本</div></div>
+            <div class="metric"><div class="metric-value">18</div><div class="metric-label">亚马逊样本</div></div>
             <div class="metric"><div class="metric-value">109</div><div class="metric-label">总数据量</div></div>
             <div class="metric"><div class="metric-value">3</div><div class="metric-label">分析平台</div></div>
         </div>
@@ -55,44 +55,49 @@
         </div>
         
         <div class="section">
-            <h2>📈 今日新增亚马逊数据（16条有效数据）</h2>
+            <h2>📈 今日新增亚马逊样本（18条有评论数据）</h2>
             <table>
                 <tr><th>产品</th><th>价格</th><th>评论</th><th>评分</th><th>品牌</th><th>类型</th></tr>
-                <tr><td>天坛 中国绿茶 特级 1磅</td><td class="price">$8.95</td><td class="reviews">449</td><td>⭐4.5</td><td>天坛</td><td><span class="tag tag-green">绿茶</span></td></tr>
+                <tr><td>3 Ballerina Diet Tea 18 COUNT</td><td class="price">$16.95</td><td class="reviews">16,687</td><td>⭐4.5</td><td>3 Ballerina</td><td><span class="tag tag-red">减肥茶</span></td></tr>
+                <tr><td>Hyleys 排毒茶 30袋</td><td class="price">$6.92</td><td class="reviews">7,711</td><td>⭐4.4</td><td>Hyleys</td><td><span class="tag tag-red">排毒茶</span></td></tr>
+                <tr><td>天坛 中国绿茶 特级 1磅</td><td class="price">$8.95</td><td class="reviews">449</td><td>⭐4.5</td><td>Temple of Heaven</td><td><span class="tag tag-green">绿茶</span></td></tr>
+                <tr><td>上海工艺中国绿茶特级</td><td class="price">$13.95</td><td class="reviews">490</td><td>⭐4.5</td><td>上海工艺</td><td><span class="tag tag-green">绿茶</span></td></tr>
+                <tr><td>Tian Hu Shan 茉莉绿茶 15盎司</td><td class="price">$18.98</td><td class="reviews">1,110</td><td>⭐4.5</td><td>Tian Hu Shan</td><td><span class="tag tag-green">茉莉绿茶</span></td></tr>
                 <tr><td>Oriarm 龙井新茶 明前 1000克</td><td class="price">$107.80</td><td class="reviews">291</td><td>⭐4.2</td><td>Oriarm</td><td><span class="tag tag-green">龙井</span></td></tr>
-                <tr><td>3 Ballerina Diet Tea 18 COUNT</td><td class="price">$16.95</td><td class="reviews">122</td><td>⭐4.5</td><td>3 Ballerina</td><td><span class="tag tag-yellow">Diet Tea</span></td></tr>
-                <tr><td>HealthA2Z 抹茶绿茶 散装 8盎司</td><td class="price">$137.82</td><td class="reviews">3</td><td>⭐5.0</td><td>HealthA2Z</td><td><span class="tag tag-green">抹茶</span></td></tr>
-                <tr><td>GOARTEA 龙井绿茶 4包 250克</td><td class="price">$119.88</td><td class="reviews">1</td><td>⭐4.0</td><td>GOARTEA</td><td><span class="tag tag-green">龙井</span></td></tr>
-                <tr><td>Oriarm 青绿茶 福建 1000克</td><td class="price">$113.80</td><td class="reviews">16</td><td>⭐4.0</td><td>Oriarm</td><td><span class="tag tag-green">绿茶</span></td></tr>
+                <tr><td>China Slim Tea 72袋</td><td class="price">$14.99</td><td class="reviews">1,005</td><td>⭐4.5</td><td>China Slim</td><td><span class="tag tag-red">减肥茶</span></td></tr>
+                <tr><td>Guayaki 抹茶 16袋</td><td class="price">$20.99</td><td class="reviews">891</td><td>⭐4.5</td><td>Guayaki</td><td><span class="tag tag-blue">抹茶</span></td></tr>
+                <tr><td>Frontier 有机珠茶 1磅</td><td class="price">$17.61</td><td class="reviews">825</td><td>⭐4.6</td><td>Frontier Co-op</td><td><span class="tag tag-green">有机珠茶</span></td></tr>
+                <tr><td>茶园 茉莉龙珠 16盎司</td><td class="price">$148.00</td><td class="reviews">535</td><td>⭐5.0</td><td>茶园</td><td><span class="tag tag-green">茉莉龙珠</span></td></tr>
             </table>
         </div>
         
         <div class="section">
             <h2>💡 核心洞察</h2>
-            <div class="highlight-box opportunity">
+            <div class="opportunity">
                 <strong>🎯 机会</strong>
                 <ul style="margin-left:20px;margin-top:10px;">
-                    <li><strong>龙井茶热销</strong>：Oriarm龙井评论291条，$107.80，需求真实</li>
-                    <li><strong>天坛绿茶</strong>：$8.95低价位，449评论，销量稳定</li>
-                    <li><strong>抹茶市场</strong>：HealthA2Z $137.82，评分5.0，高端有空间</li>
+                    <li><strong>减肥/排毒茶热销</strong>：3 Ballerina 16,687评论，Hyleys 7,711评论，需求真实但竞争激烈</li>
+                    <li><strong>中国茶有机会</strong>：天坛、上海工艺评论400+，品质被认可，品牌弱</li>
+                    <li><strong>茉莉龙井高价</strong>：茶园$148/535评论，评分5.0，高端有空间</li>
                 </ul>
             </div>
-            <div class="highlight-box risk">
+            <div class="risk">
                 <strong>⚠️ 风险</strong>
                 <ul style="margin-left:20px;margin-top:10px;">
-                    <li><strong>品牌认知弱</strong>：大部分中国茶品牌未能识别，缺乏品牌建设</li>
-                    <li><strong>价格战</strong>：低价茶（$8-20）竞争激烈</li>
+                    <li><strong>减肥茶红海</strong>：大品牌垄断，新进入难</li>
+                    <li><strong>中国茶品牌弱</strong>：天坛等有认知度，但整体品牌弱</li>
                 </ul>
             </div>
         </div>
         
         <div class="section">
             <h2>🚀 策略建议</h2>
-            <div class="highlight-box opportunity">
+            <div class="opportunity">
                 <strong>🇺🇸 亚马逊策略</strong>
                 <ul style="margin-left:20px;margin-top:10px;">
-                    <li>主推：信阳高山绿茶/龙井</li>
-                    <li>定价：$25-50（避开低价竞争）</li>
+                    <li>避开减肥茶红海</li>
+                    <li>主打：中国茉莉绿茶/龙井</li>
+                    <li>定价：$20-50（避开$10以下价格战）</li>
                     <li>毛利：40-50%</li>
                 </ul>
             </div>
@@ -100,7 +105,7 @@
         
         <footer>
             <p>🍵 CBEC茶叶竞品分析系统 | 2026-03-27</p>
-            <p>Generated by Martin Agent</p>
+            <p>Generated by Martin Agent | 10 Subagents并行分析</p>
         </footer>
     </div>
 </body>
